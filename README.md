@@ -14,7 +14,7 @@ Se sua senha estiver na lista retornada, significa que ela foi vazada. O restant
 # O que é um hash?
 É o resultado da aplicação de uma função hash, que transforma uma entrada (como um texto, arquivo, senha, etc.) em uma sequência fixa de caracteres, geralmente em formato hexadecimal, é como um "resumo digital" de qualquer informação. Armazena senhas de forma protegida (sem guardar a senha real).
 
-✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧✧⋄⋆⋅⋆
+✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧
 
 _Durante a execução do código tive que quebrar cabeça e recorrer a ajuda de duas IAs, as senhas comuns como "123456" ou "senha123" davam o erro "❌ Não foi possível verificar a senha devido a um erro, Tente novamente mais tarde." ao invés de considerar que era uma senha comum e/ou que foi vazadas, e testando esse código no Google Colab, todas as senhas, até mesmo as mais complexas com infinitos símbolos, davam "senha comum" como resultado._
 
