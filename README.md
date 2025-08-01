@@ -16,6 +16,6 @@ Se sua senha estiver na lista retornada, significa que ela foi vazada. O restant
 
 ✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧✧⋄⋆⋅⋆⋄✧⋄⋆⋅⋆⋄✧
 
-_Durante a execução do código tive que quebrar cabeça e recorrer a ajuda de duas IAs, as senhas comuns como "123456" ou "senha123" davam o erro "❌ Não foi possível verificar a senha devido a um erro, Tente novamente mais tarde." ao invés de considerar que era uma senha comum e/ou que foi vazadas, e testando esse código no Google Colab, todas as senhas, até mesmo as mais complexas com infinitos símbolos, davam "senha comum" como resultado._
+_Durante a execução do código tive que quebrar cabeça e recorrer a ajuda de duas IAs, as senhas comuns como "123456" ou "senha123" davam o erro "❌ Não foi possível verificar a senha devido a um erro, Tente novamente mais tarde." ao invés de considerar que era uma senha comum e/ou que foram vazadas, e testando esse código no Google Colab, todas as senhas, até mesmo as mais complexas com infinitos símbolos, davam "senha comum" como resultado._
 
 _Ainda não sei como resolver isso, pode ser só as minhas configurações de segurança, mas vou correr atrás de ter a resposta correta com senhas comuns e vazadas._
