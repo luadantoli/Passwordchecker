@@ -1,7 +1,7 @@
 import hashlib
 import requests
 
-# --- Função para obter os hashes vazados da API do HIBP ---
+# Função para obter os hashes vazados da API do HIBP 
 def obter_hashes_vazados(prefixo_hash):
     """
     Faz uma requisição à API do HIBP para obter hashes que começam
@@ -12,7 +12,7 @@ def obter_hashes_vazados(prefixo_hash):
     """
     url = f"https://api.pwnedpasswords.com/range/{prefixo_hash}"
     try:
-        # Usamos stream=True para ler a resposta em partes e um timeout generoso
+        
         with requests.get(url, stream=True, timeout=30) as resposta:
             resposta.raise_for_status()
 
@@ -23,7 +23,6 @@ def obter_hashes_vazados(prefixo_hash):
                 # Se o número de linhas exceder um limite, a senha é muito comum
                 linha_contador += 1
                 if linha_contador > 1000:
-                    # Retornamos um dicionário especial para a função principal
                     return {'TOO_COMMON': 1}
                 
                 partes = linha.split(':')
@@ -41,7 +40,7 @@ def obter_hashes_vazados(prefixo_hash):
         return {}
 
 
-# --- Função para verificar a senha ---
+# Função para verificar a senha 
 def verificar_senha_vazada(senha):
     """
     Verifica se uma senha foi encontrada em vazamentos usando a API do HIBP.
@@ -53,20 +52,21 @@ def verificar_senha_vazada(senha):
     print(f"Prefix hash: {prefixo_hash}") 
     
     hash_restante = hash_sha1[5:]
-
     hashes_vazados = obter_hashes_vazados(prefixo_hash)
+    foi_vazada = False
     
     if 'TOO_COMMON' in hashes_vazados:
-        return -2  # Um valor especial para senhas muito comuns
+        if hash_restante in hashes_vazados:
+            foi_vazada = True
+        return -2, foi_vazada 
     
     if hash_restante in hashes_vazados:
+        foi_vazada = True
         contagem = hashes_vazados[hash_restante]
-        return contagem
+        return contagem, foi_vazada
     else:
-        return 0
+        return 0, foi_vazada
 
-
-# --- Código principal (onde você usa as funções) ---
 if __name__ == "__main__":
     print("--- Verificador de Senhas Vazadas ---")
     print("Este programa verifica se sua senha foi exposta em vazamentos de dados.")
@@ -88,7 +88,9 @@ if __name__ == "__main__":
         resultado = verificar_senha_vazada(senha_para_verificar)
 
         if resultado == -2:
-            print("\n⚠️ AVISO! Esta senha é EXTREMAMENTE comum e provavelmente foi vazada.")
+            print("\n⚠️ AVISO! Esta senha é EXTREMAMENTE comum.")
+            if foi_vazada:
+                print("Além disso, ELA JÁ FOI ENCONTRADA EM VAZAMENTOS!")
             print("É ALTAMENTE RECOMENDADO que você MUDE esta senha IMEDIATAMENTE.")
         elif resultado > 0:
             print(f"\n🚨 ATENÇÃO! Esta senha foi encontrada em {resultado} vazamento(s) de dados.")
@@ -100,3 +102,4 @@ if __name__ == "__main__":
             print("\n❌ Não foi possível verificar a senha devido a um erro. Tente novamente mais tarde.")
 
         print("\n" + "-" * 35)
+
